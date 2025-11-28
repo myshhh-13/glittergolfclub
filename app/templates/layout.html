@@ -7,8 +7,8 @@
 			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 			<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 		{% elif env == "dev" %}
-			<link rel="stylesheet" href="{{ url_for('static', filename='dev/css/style.css') }}">
-			<script src="{{ url_for('static', filename='dev/js/script.js') }}"></script>
+			<link rel="stylesheet" href="{{ url_for('dev/static', filename='css/style.css') }}">
+			<script src="{{ url_for('dev/static', filename='js/script.js') }}"></script>
 		{% endif %}
 	</head>
 	<body>
