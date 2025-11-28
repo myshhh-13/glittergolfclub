@@ -7,8 +7,14 @@
 		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 	</head>
 	<body>
+		<header>
+			<a>hi</a>
+		</header>
 		<main>
 			{% block content %}{% endblock %}
 		</main>
+		<footer>
+			<h2> Версия {{ env }} {{ version }} </h2>
+		</footer>
 	</body>
 </html>
