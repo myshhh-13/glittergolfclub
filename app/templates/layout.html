@@ -3,13 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{% block title %}{% endblock %}</title>
-		{% if env == "prod" %}
-			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-			<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-		{% elif env == "dev" %}
-			<link rel="stylesheet" href="https://glittergolfclub.ru/static/css/style.css">
-			<script src="static/js/script.js"></script>
-		{% endif %}
+		<link rel="stylesheet" href="static/css/style.css">
+		<script src="static/js/script.js"></script>
 	</head>
 	<body>
 		<header>
