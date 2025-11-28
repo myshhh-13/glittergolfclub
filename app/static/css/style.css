@@ -7,20 +7,26 @@ html, body {
 body {
 	display: flex;
 	flex-direction: column;
+	font-family: "Russo One", serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 header {
 	display: flex;
 	flex: 0 0 7%;
-    background-color: #2c3e50;
 	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+	background-color: #571089;
+	color: #fef5f6;
 }
 
 main {
 	display: flex;
 	flex: 1 1 90%;
 	overflow: auto;
-    background-color: #ecf0f1;
+    background-color: #fef5f6;
 }
 
 footer {
@@ -28,6 +34,8 @@ footer {
 	flex: 0 0 3%;
     background-color: #34495e;
 	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
 }
 
 .logo-container {
@@ -40,10 +48,7 @@ footer {
 .links-container {
 	display: flex;
 	align-items: center;
-	gap: 3rem;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+	gap: 1rem;
 }
 
 .links-container a{
