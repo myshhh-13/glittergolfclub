@@ -12,7 +12,7 @@ def create_app():
     else:
         static_url_path = '/static'
 
-    app = Flask(__name__, static_url_path=static_url_path)
+    app = Flask(__name__, static_folder='static', static_url_path=static_url_path)
     app.config.from_object(Config)
     app.register_blueprint(main_bp)
 
