@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 class Config:
-    load_dotenv('app/.env')
+    load_dotenv('.env')
 
     ENVIRONMENT = os.getenv('ENVIRONMENT')
 
