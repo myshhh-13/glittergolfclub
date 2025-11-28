@@ -8,13 +8,16 @@
 	</head>
 	<body>
 		<header>
-			<a>hi</a>
+			<a href="/" class="logo-container">
+				<img src="static/img/icon.png" alt="Logo" width="100" height="100">
+				<h1>Golf club Glitter</h1>
+			</a>
 		</header>
 		<main>
 			{% block content %}{% endblock %}
 		</main>
 		<footer>
-			<h2> Версия {{ env }} {{ version }} </h2>
+			<p> Версия {{ env }} {{ version }} </p>
 		</footer>
 	</body>
 </html>
