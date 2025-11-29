@@ -17,6 +17,11 @@ def news():
     return render_template('news.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
 
 
+@bp.route('/ourfields')
+def ourfields():
+    return render_template('ourfields.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
+
+
 @bp.route('/about')
 def about():
     return render_template('about.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
