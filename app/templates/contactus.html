@@ -4,6 +4,23 @@
 
 {% block content %}
 	<div>
-		<h1>About</h1>
+		<form action="requests" method="POST">
+		    <label for="firstName">Имя</label>
+	    	<input type="text" name="first_name" required>
+
+		    <label for="lastName">Фамилия</label>
+		    <input type="text" name="last_name" required>
+
+		    <label for="orgName">Имя организации</label>
+		    <input type="text" name="org_name">
+
+		    <label for="email">Электронная почта</label>
+		    <input type="email" name="email" required>
+
+		    <label for="message">Ваши пожелания</label>
+		    <textarea name="message" required></textarea>
+
+		    <button type="submit">Отправить</button>
+		</form>
 	</div>
 {% endblock %}

@@ -1,6 +1,12 @@
-from flask import Blueprint, current_app, render_template
+from flask import Blueprint, current_app, render_template, request
+
 
 bp = Blueprint('main', __name__)
+
+
+requst_log = {}
+blacklist = set()
+
 
 @bp.route('/')
 def index():
@@ -25,3 +31,16 @@ def ourfields():
 @bp.route('/about')
 def about():
     return render_template('about.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
+
+
+@bp.route('/requests', methods=['POST'])
+def requests():
+    ip = request.remote_addr
+
+    print(ip)
+
+    first_name = request.form.get('first_name', '').strip()
+    last_name = request.form.get('last_name', '').strip()
+    org_name = request.form.get('org_name', 'Natural person').strip()
+    email = request.form.get('email', '').strip()
+    message = request.form.get('message', '').strip()
