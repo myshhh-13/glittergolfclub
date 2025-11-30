@@ -1,4 +1,5 @@
-from flask import Blueprint, current_app, render_template, request
+from flask import Blueprint, current_app, render_template, request, jsonify
+from datetime import datetime, timedelta
 
 
 bp = Blueprint('main', __name__)
@@ -6,6 +7,12 @@ bp = Blueprint('main', __name__)
 
 requst_log = {}
 blacklist = set()
+
+
+def is_blacklisted(ip):
+    return ip in blacklist
+
+
 
 
 @bp.route('/')
@@ -44,3 +51,5 @@ def requests():
     org_name = request.form.get('org_name', 'Natural person').strip()
     email = request.form.get('email', '').strip()
     message = request.form.get('message', '').strip()
+
+    return jsonify({'ip': ip}), 200
