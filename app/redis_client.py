@@ -17,7 +17,7 @@ def add_request(ip):
     incr_val, cur_ttl = pipe.execute()
 
     if cur_ttl in (-1, -2):
-        client.expire(ip, int(current_app.config['FORGIVE_CLIETS_AFTER']))
+        client.expire(ip, int(current_app.config['FORGIVE_CLIENTS_AFTER']))
 
     return incr_val
 
