@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, render_template, request, jsonify
+from flask import Blueprint, current_app, render_template, request, jsonify, Response
 
 from app import redis_client
 
@@ -53,5 +53,6 @@ def requests():
         'email': request.form.get('email', '').strip(),
         'message': request.form.get('message', '').strip(),
     }
-
-    return jsonify({'count': count, 'ip': ip, 'request_data': request_data}), 200
+    
+    #return jsonify({'count': count, 'ip': ip, 'request_data': request_data}), 200
+    return Response(status=200)
