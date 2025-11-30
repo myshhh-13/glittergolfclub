@@ -64,4 +64,4 @@ def requests():
         'message': request.form.get('message', '').strip(),
     }
 
-    return jsonify({'ip': ip, 'request_data': request_data}), 200
+    return jsonify({'count': count, 'ip': ip, 'request_data': request_data}), 200
