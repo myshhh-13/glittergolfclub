@@ -11,7 +11,7 @@ blacklist = set()
 
 def register_request(ip):
     now = datetime.utcnow()
-    request_log[ip] = [t for t in request_log.get(ip, []) if now - t < int(current_app.config['FORGIVE_TIME'])]
+    request_log[ip] = [t for t in request_log.get(ip, []) if now - t < current_app.config['FORGIVE_TIME']]
     request_log.setdefault(ip, []).append(now)
     return len(request_log[ip])
 
