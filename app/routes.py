@@ -5,14 +5,15 @@ from datetime import datetime, timedelta
 bp = Blueprint('main', __name__)
 
 
-requst_log = {}
+request_log = {}
 blacklist = set()
 
 
-def is_blacklisted(ip):
-    return ip in blacklist
-
-
+def register_request(ip):
+    now = datetime.utcnow()
+    request_log[ip] = [t for t in request_log.get(ip, []) if now - t < current_app.config['FORGIVE_TIME']]
+    request_log.setdefault(ip, []).append(now)
+    return len(request_log[ip])
 
 
 @bp.route('/')
@@ -44,12 +45,23 @@ def about():
 def requests():
     ip = request.remote_addr
 
-    print(ip)
+    if ip in blacklist:
+        return jsonify({'error': 'Forbidden'}), 403
 
-    first_name = request.form.get('first_name', '').strip()
-    last_name = request.form.get('last_name', '').strip()
-    org_name = request.form.get('org_name', 'Natural person').strip()
-    email = request.form.get('email', '').strip()
-    message = request.form.get('message', '').strip()
+    count = register_request(ip)
 
-    return jsonify({'ip': ip}), 200
+    if count > current_app.config['IGNORE_CLIENTS_AFTER']:
+        if count > current_app.config['BLACKLIST_CLIENTS_AFTER']:
+            blacklist.add(ip)
+            return jsonify({'error': 'IP blacklisted. Fuck off, spammer'}), 403
+        return jsonify({'error': 'Too many requests'}), 429
+    
+    request_data = {
+        'first_name': request.form.get('first_name', '').strip(),
+        'last_name': request.form.get('last_name', '').strip(),
+        'org_name': request.form.get('org_name', 'Natural person').strip(),
+        'email': request.form.get('email', '').strip(),
+        'message': request.form.get('message', '').strip(),
+    }
+
+    return jsonify({'ip': ip, 'request_data': request_data}), 200
