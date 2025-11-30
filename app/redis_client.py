@@ -7,10 +7,11 @@ from flask import current_app
 #    password=current_app.config['REDIS_PASSWORD']
 #)
 
-client = current_app.extensions['redis']
 
 
 def add_request(ip):
+    client = current_app.extensions['redis']
+
     pipe = client.pipeline()
     pipe.incr(ip)
     pipe.ttl(ip)
@@ -23,8 +24,12 @@ def add_request(ip):
 
 
 def blacklist(ip):
+    client = current_app.extensions['redis']
+
     added = client.sadd("blacklist", ip)
     return bool(added)
 
 def is_blacklisted(ip):
+    client = current_app.extensions['redis']
+
     return client.sismember("blacklist", ip)
