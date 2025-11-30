@@ -1,13 +1,13 @@
 from flask import current_app
-import redis
 
+#client = redis.Redis(
+#    host=current_app.config['REDIS_IP'],
+#    port=current_app.config['REDIS_PORT'],
+#    db=current_app.config['REDIS_DB'],
+#    password=current_app.config['REDIS_PASSWORD']
+#)
 
-client = redis.Redis(
-    host=current_app.config['REDIS_IP'],
-    port=current_app.config['REDIS_PORT'],
-    db=current_app.config['REDIS_DB'],
-    password=current_app.config['REDIS_PASSWORD']
-)
+client = current_app.extensions['redis']
 
 
 def add_request(ip):
