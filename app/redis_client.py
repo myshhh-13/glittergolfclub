@@ -1,16 +1,19 @@
 from flask import current_app
-
-#client = redis.Redis(
-#    host=current_app.config['REDIS_IP'],
-#    port=current_app.config['REDIS_PORT'],
-#    db=current_app.config['REDIS_DB'],
-#    password=current_app.config['REDIS_PASSWORD']
-#)
+import redis
 
 
+def create_client():
+    client = redis.Redis(
+        host=current_app.config['REDIS_IP'],
+        port=current_app.config['REDIS_PORT'],
+        db=current_app.config['REDIS_DB'],
+        password=current_app.config['REDIS_PASSWORD']
+    )
+
+    return client
 
 def add_request(ip):
-    client = current_app.extensions['redis']
+    client = create_client()
 
     pipe = client.pipeline()
     pipe.incr(ip)
@@ -24,12 +27,12 @@ def add_request(ip):
 
 
 def blacklist(ip):
-    client = current_app.extensions['redis']
+    client = create_client()
 
     added = client.sadd("blacklist", ip)
     return bool(added)
 
 def is_blacklisted(ip):
-    client = current_app.extensions['redis']
+    client = create_client()
 
     return client.sismember("blacklist", ip)
