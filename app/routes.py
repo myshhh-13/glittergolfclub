@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, render_template, request, jsonify, Response
 
-from app import redis_client
+from app import redis_client, email_client
 
 
 bp = Blueprint('main', __name__)
@@ -19,11 +19,6 @@ def contactus():
 @bp.route('/news')
 def news():
     return render_template('news.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
-
-
-@bp.route('/ourfields')
-def ourfields():
-    return render_template('ourfields.html', title='Glitter Club', version=current_app.config['VERSION'], env=current_app.config['ENVIRONMENT'])
 
 
 @bp.route('/about')
@@ -53,5 +48,7 @@ def requests():
         'email': request.form.get('email', '').strip(),
         'message': request.form.get('message', '').strip(),
     }
-    
+   
+#    email_client.send_email(request_data)
+
     return jsonify({'count': count, 'ip': ip, 'request_data': request_data}), 200
