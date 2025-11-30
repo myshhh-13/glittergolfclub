@@ -1,6 +1,10 @@
 console.log('Hello world')
 
-document.getElementById('contacusform').addEventListener('submit', function (e) {
-  e.preventDefault();
+const forms = document.querySelectorAll('form');
+
+forms.forEach(form => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+  });
 });
 
