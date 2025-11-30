@@ -1,19 +1,9 @@
 from flask import Blueprint, current_app, render_template, request, jsonify
-from datetime import datetime, timedelta
+
+from app import redis_client
 
 
 bp = Blueprint('main', __name__)
-
-
-request_log = {}
-blacklist = set()
-
-
-def register_request(ip):
-    now = datetime.utcnow()
-    request_log[ip] = [t for t in request_log.get(ip, []) if now - t < current_app.config['FORGIVE_TIME']]
-    request_log.setdefault(ip, []).append(now)
-    return len(request_log[ip])
 
 
 @bp.route('/')
@@ -45,14 +35,14 @@ def about():
 def requests():
     ip = request.remote_addr
 
-    if ip in blacklist:
-        return jsonify({'error': 'Forbidden'}), 403
+    if redis_client.is_blacklisted(ip):
+        return jsonify({'error': 'IP blacklisted. Fuck off, spammer'}), 403
 
-    count = register_request(ip)
+    count = redis_client.add_request(ip)
 
     if count > int(current_app.config['IGNORE_CLIENTS_AFTER']):
         if count > int(current_app.config['BLACKLIST_CLIENTS_AFTER']):
-            blacklist.add(ip)
+            redis_client.blacklist(ip)
             return jsonify({'error': 'IP blacklisted. Fuck off, spammer'}), 403
         return jsonify({'error': 'Too many requests'}), 429
     
@@ -64,4 +54,4 @@ def requests():
         'message': request.form.get('message', '').strip(),
     }
 
-    return jsonify({'request_log': request_log, 'count': count, 'ip': ip, 'request_data': request_data}), 200
+    return jsonify({'count': count, 'ip': ip, 'request_data': request_data}), 200

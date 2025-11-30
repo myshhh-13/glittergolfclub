@@ -9,7 +9,12 @@ class Config:
 
     IGNORE_CLIENTS_AFTER = os.getenv('IGNORE_CLIENTS_AFTER')
     BLACKLIST_CLIENTS_AFTER = os.getenv('BLACKLIST_CLIENTS_AFTER')
-    FORGIVE_TIME = timedelta(minutes=int(os.getenv('FORGIVE_TIME')))
+    FORGIVE_CLIETS_AFTER = timedelta(minutes=int(os.getenv('FORGIVE_CLIETS_AFTER')))
+
+    REDIS_IP = os.getenv('REDIS_IP')
+    REDIS_PORT = os.getenv('REDIS_PORT')
+    REDIS_DB = os.getenv('REDIS_DB')
+    REDIS_PASSWORD = os.getenv('REDIS_PASSWORD')
 
     with open('VERSION', 'r', encoding='utf-8') as file:
         VERSION = file.read()
