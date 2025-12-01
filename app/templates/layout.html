@@ -3,21 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{% block title %}{% endblock %}</title>
-		<link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="static/css/style.css">
-		<script src="static/js/script.js"></script>
+
+		<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico')[1:] }}" type="image/x-icon">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')[1:] }}">
+		<script src="{{ url_for('static', filename='js/script.js')[1:] }}"></script>
+
 		<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<header>
-			<a href="/" class="logo-container">
-				<img src="static/img/icon.png" alt="Logo" width="100" height="100">
-				<h1>Golf club Glitter</h1>
+			<a href="" class="logo-container">
+	   			<img src="{{ url_for('static', filename='img/icon.png') }}" alt="Logo" width="100" height="100">
+	    		<h1>Golf club Glitter</h1>
 			</a>
 			<div class="links-container">
-				<a href="contactus">Свяжитесь с нами</a>
-				<a href="news">Что нового</a>
-				<a href="about">О нас</a>
+			    <a href="{{ url_for('main.contactus')[1:] }}">Свяжитесь с нами</a>
+			    <a href="{{ url_for('main.news')[1:] }}">Что нового</a>
+			    <a href="{{ url_for('main.about')[1:] }}">О нас</a>
 			</div>
 		</header>
 		<main>
