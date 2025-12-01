@@ -10,6 +10,7 @@ body {
 	font-family: "Russo One", serif;
 	font-weight: 400;
 	font-style: normal;
+	color: #89023e;
 }
 
 header {
@@ -18,21 +19,20 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 15px;
-	background-color: #571089;
-	color: #fef5f6;
+	background-color: #e88eed;
 }
 
 main {
 	display: flex;
 	flex: 1 1 90%;
 	overflow: auto;
-    background-color: #fef5f6;
+	background-color: #ffeef2;
 }
 
 footer {
 	display: flex;
 	flex: 0 0 3%;
-    background-color: #34495e;
+    background-color: #e88eed;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 15px;
@@ -85,4 +85,37 @@ footer {
 .course-text-container {
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.news-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.news {
+	max-width: 50%;
+    background-color: #ffd9da;
+	margin-top: 15px;
+	padding: 0 15px;
+	border-radius: 15px;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+}
+
+.helpme {
+	color: #e88eed;
 }
