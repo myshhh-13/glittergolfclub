@@ -55,3 +55,34 @@ footer {
 	text-decoration: none;
 	color: inherit;
 }
+
+.courses-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.course-container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.course-container-right {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.course-container img {
+	max-width: 65%;
+	max-height: 100%;
+}
+
+.course-container-right img {
+	max-width: 65%;
+	max-height: 100%;
+}
+
+.course-text-container {
+	padding-left: 15px;
+	padding-right: 15px;
+}
