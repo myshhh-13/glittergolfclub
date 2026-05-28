@@ -1,4 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
 venv/
-__pycache__/ 
-test.py 
 .env
+backend/.env
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.idea/
+.vscode/
+*.log
+test.py

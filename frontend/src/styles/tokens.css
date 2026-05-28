@@ -1,0 +1,41 @@
+:root {
+  /* Brand palette - forest green clubhouse */
+  --c-forest: #1d4a2c;
+  --c-forest-deep: #14361f;
+  --c-forest-soft: #2f6240;
+  --c-forest-mute: #4f7a52;
+  --c-cream: #f5ecdc;
+  --c-cream-warm: #efe3ce;
+  --c-paper: #faf3e6;
+  --c-paper-warm: #f0e6d1;
+  --c-ink: #1f2a23;
+  --c-ink-soft: #3b4a3f;
+  --c-muted: #6b7770;
+  --c-line: rgba(29, 74, 44, 0.14);
+  --c-line-strong: rgba(29, 74, 44, 0.24);
+  --c-gold: #c79a55;
+  --c-gold-soft: #e3c98c;
+
+  --c-status-new: #c79a55;
+  --c-status-progress: #6b7c98;
+  --c-status-done: #2f6240;
+  --c-status-rejected: #a8556a;
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: clamp(20px, 4vw, 56px);
+  --radius-s: 12px;
+  --radius-m: 20px;
+  --radius-l: 28px;
+  --radius-xl: 40px;
+
+  --shadow-soft: 0 18px 40px -28px rgba(20, 54, 31, 0.35);
+  --shadow-card: 0 26px 56px -32px rgba(20, 54, 31, 0.4);
+  --shadow-hover: 0 36px 72px -32px rgba(20, 54, 31, 0.45);
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

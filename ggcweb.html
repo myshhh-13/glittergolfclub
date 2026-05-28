@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitter Golf Club</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f8f5ff',
+              100: '#efe8ff',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              900: '#2e1065'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-brand-700">Glitter Golf Club</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#about" class="hover:text-brand-700">О клубе</a>
+          <a href="#courses" class="hover:text-brand-700">Поля</a>
+          <a href="#pricing" class="hover:text-brand-700">Тарифы</a>
+          <a href="#contact" class="hover:text-brand-700">Контакты</a>
+        </nav>
+        <a href="#booking" class="inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-white text-sm font-semibold hover:bg-brand-700 transition">
+          Забронировать
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-900/80 to-brand-700/50"></div>
+    <img src="blob:https://web.telegram.org/70edde15-1964-4bb4-a306-62630b5664ec" alt="Гольф поле" class="h-[70vh] w-full object-cover" />
+    <div class="absolute inset-0">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div class="max-w-2xl text-white">
+          <p class="uppercase tracking-[0.2em] text-xs sm:text-sm mb-4">Премиальный гольф-клуб</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Играйте на лучших полях в городе</h1>
+          <p class="mt-4 text-lg text-white/90">18-луночное поле, индивидуальные тренировки, турниры и клубная инфраструктура высокого уровня.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#booking" class="rounded-lg bg-white text-brand-700 px-5 py-3 font-semibold hover:bg-slate-100 transition">Записаться на игру</a>
+            <a href="#pricing" class="rounded-lg border border-white/70 text-white px-5 py-3 font-semibold hover:bg-white/10 transition">Смотреть тарифы</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd53?auto=format&fit=crop&w=1200&q=80" alt="Клубный дом" class="rounded-2xl shadow-lg object-cover h-full min-h-[320px]" />
+      <div>
+        <h2 class="text-3xl font-bold text-slate-900">О клубе Glitter Golf Club</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Мы объединили спорт, отдых и бизнес-общение в одном месте. На территории клуба: тренировочная зона,
+          профессиональные инструкторы, ресторан с панорамным видом и VIP-лаунж.
+        </p>
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="rounded-xl bg-white p-4 border border-slate-200">
+            <p class="text-2xl font-extrabold text-brand-700">18</p>
+            <p class="text-sm text-slate-600">Лунок на основном поле</p>
+          </div>
+          <div class="rounded-xl bg-white p-4 border border-slate-200">
+            <p class="text-2xl font-extrabold text-brand-700">7/7</p>
+            <p class="text-sm text-slate-600">Клуб открыт ежедневно</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-slate-900">Тарифы</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-white border border-slate-200 p-6">
+          <h3 class="text-lg font-semibold">Клубный</h3>
+          <p class="mt-4 text-4xl font-extrabold">18 000₽</p>
+          <p class="text-slate-500">в месяц</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• 8 игр в месяц</li>
+            <li>• 1 тренировка с инструктором</li>
+            <li>• Доступ к тренировочной зоне</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl bg-brand-600 text-white p-6 shadow-lg">
+          <h3 class="text-lg font-semibold">VIP</h3>
+          <p class="mt-4 text-4xl font-extrabold">45 000₽</p>
+          <p class="text-white/80">в месяц</p>
+          <ul class="mt-4 space-y-2 text-sm text-white/90">
+            <li>• Неограниченные игры</li>
+            <li>• 4 персональные тренировки</li>
+            <li>• VIP-лаунж и приоритетное бронирование</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl bg-white border border-slate-200 p-6">
+          <h3 class="text-lg font-semibold">Корпоративный</h3>
+          <p class="mt-4 text-4xl font-extrabold">120 000₽</p>
+          <p class="text-slate-500">в месяц</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• До 12 сотрудников в клубе</li>
+            <li>• 2 корпоративных турнира в месяц</li>
+            <li>• Персональный менеджер и бренд-зона</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking" class="py-16 sm:py-20 bg-white border-y border-slate-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-slate-900">Бронирование</h2>
+      <p class="mt-2 text-slate-600">Оставьте заявку — мы свяжемся с вами для подтверждения времени.</p>
+
+      <form class="mt-8 grid sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="Ваше имя" class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" required>
+        <input type="tel" placeholder="Телефон" class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" required>
+        <input type="email" placeholder="Email" class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600 sm:col-span-2" required>
+        <input type="date" class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" required>
+
+        <select class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" required>
+          <option value="">Выберите тариф</option>
+          <option>Клубный</option>
+          <option>VIP</option>
+          <option>Корпоративный</option>
+        </select>
+
+        <textarea placeholder="Комментарий" rows="4" class="rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600 sm:col-span-2"></textarea>
+
+        <button type="submit" class="sm:col-span-2 rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white hover:bg-brand-700 transition">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-600 flex flex-col sm:flex-row justify-between gap-2">
+      <p>© 2026 Glitter Golf Club</p>
+      <p>Москва, ул. Разумовского, 13 • +7 (977) 658-45-67 • hello@glittergolf.ru</p>
+    </div>
+  </footer>
+</body>
+</html>
+
